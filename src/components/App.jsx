@@ -1,11 +1,12 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
-import { Container } from './PhonebookContainer.styled';
+
 import { Title } from './Title/AppTitle';
 import { ContactForm } from './ContactForm/FormWrapper';
 import { SectionTitle } from './Title/SectionTitle';
 import { Filter } from './Filter/Filter';
 import { ContactList } from './FriendList/FriendList';
+import { Box } from './Box';
 
 export class App extends Component {
   state = {
@@ -54,7 +55,7 @@ export class App extends Component {
     );
 
     return (
-      <Container>
+      <Box maxWidth="1000px" my={0} mx="auto">
         <Title text="Phonebook" />
         <ContactForm onConfirmAddFriend={this.onConfirmAddFriend} />
         <SectionTitle text="Contacts" />
@@ -66,7 +67,7 @@ export class App extends Component {
           list={filteredFriends}
           onFriendDelete={this.onFriendDelete}
         />
-      </Container>
+      </Box>
     );
   }
 }
