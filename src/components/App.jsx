@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { nanoid } from 'nanoid';
 
 import { Title } from './Title/AppTitle';
-import { ContactForm } from './ContactForm/FormWrapper';
+import { ContactForm } from './ContactForm/ContactForm';
 import { SectionTitle } from './Title/SectionTitle';
 import { Filter } from './Filter/Filter';
 import { ContactList } from './FriendList/FriendList';
@@ -55,7 +55,7 @@ export class App extends Component {
     );
 
     return (
-      <Box maxWidth="1000px" my={0} mx="auto">
+      <Box maxWidth="1000px" my={0} mx="auto" px={4}>
         <Title text="Phonebook" />
         <ContactForm onConfirmAddFriend={this.onConfirmAddFriend} />
         <SectionTitle text="Contacts" />
