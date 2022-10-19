@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
-
 import { Title } from './Title/AppTitle';
 import { ContactForm } from './ContactForm/ContactForm';
 import { SectionTitle } from './Title/SectionTitle';
@@ -19,9 +18,7 @@ export class App extends Component {
     filter: '',
   };
 
-  onConfirmAddFriend = (evt, name, number) => {
-    evt.preventDefault();
-
+  onConfirmAddFriend = ({ name, number }, { resetForm }) => {
     const friendId = nanoid();
 
     const findedContact = this.state.contacts.find(contact =>
@@ -36,6 +33,8 @@ export class App extends Component {
         contacts: [...prevState.contacts, { id: friendId, name, number }],
       }));
     }
+
+    resetForm();
   };
 
   onFilterChange = evt => {
